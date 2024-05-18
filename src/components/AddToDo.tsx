@@ -1,13 +1,15 @@
-import React, { FormEvent, ReactElement, useState } from 'react'
+import{ FormEvent,  useState } from 'react'
+import { useTodos } from '../store/todo';
+
 
 const AddToDo = () => {
   const[todo,setTodo]=useState("");
-  
+  const {handelAddToDo}=useTodos();
 
    const handelFormSubmit=(e:FormEvent<HTMLElement>)=>{
    e.preventDefault();
-    handelAddToDo(todo)
-    setTodo("")
+   handelAddToDo(todo);
+    setTodo("");
    }
 
 
@@ -22,3 +24,4 @@ const AddToDo = () => {
 }
 
 export default AddToDo
+
